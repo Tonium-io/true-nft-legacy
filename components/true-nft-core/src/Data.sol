@@ -14,10 +14,11 @@ contract Data is IData, IndexResolver {
     address _addrRoot;
     address _addrOwner;
     address _addrAuthor;
+    bytes _metadata;
 
     uint256 static _id;
 
-    constructor(address addrOwner, TvmCell codeIndex) public {
+    constructor(address addrOwner, TvmCell codeIndex,bytes metadata) public {
         optional(TvmCell) optSalt = tvm.codeSalt(tvm.code());
         require(optSalt.hasValue(), 101);
         (address addrRoot) = optSalt.get().toSlice().decode(address);
@@ -28,6 +29,7 @@ contract Data is IData, IndexResolver {
         _addrOwner = addrOwner;
         _addrAuthor = addrOwner;
         _codeIndex = codeIndex;
+        _metadata = metadata;
 
         deployIndex(addrOwner);
     }
@@ -59,11 +61,13 @@ contract Data is IData, IndexResolver {
     function getInfo() public view override returns (
         address addrRoot,
         address addrOwner,
-        address addrData
+        address addrData,
+        bytes metadata
     ) {
         addrRoot = _addrRoot;
         addrOwner = _addrOwner;
         addrData = address(this);
+        metadata = _metadata;
     }
 
     function getOwner() public view override returns(address addrOwner) {

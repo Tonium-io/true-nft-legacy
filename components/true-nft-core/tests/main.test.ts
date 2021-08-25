@@ -2,7 +2,7 @@ import { TonClient } from "@tonclient/core";
 import { createClient } from "@ton-contracts/utils/client";
 import TonContract from "@ton-contracts/utils/ton-contract";
 import { callThroughMultisig } from "@ton-contracts/utils/net";
-import pkgSafeMultisigWallet from "../../../ton-packages/SetCodeMultisig.package"
+import pkgSafeMultisigWallet from "../ton-packages/SetCodeMultisig.package"
 import pkgNftRoot from "../ton-packages/NftRoot.package";
 import pkgData from "../ton-packages/Data.package";
 import pkgIndex from "../ton-packages/Index.package";

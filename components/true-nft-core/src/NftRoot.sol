@@ -13,7 +13,7 @@ import './interfaces/IIndexBasis.sol';
 
 contract NftRoot is DataResolver, IndexResolver {
 
-    uint256 _totalMinted;
+    uint256 public _totalMinted;
     address _addrBasis;
 
     constructor(TvmCell codeIndex, TvmCell codeData) public {
@@ -22,10 +22,10 @@ contract NftRoot is DataResolver, IndexResolver {
         _codeData = codeData;
     }
 
-    function mintNft() public {
+    function mintNft(bytes metadata) public {
         TvmCell codeData = _buildDataCode(address(this));
         TvmCell stateData = _buildDataState(codeData, _totalMinted);
-        new Data{stateInit: stateData, value: 1.1 ton}(msg.sender, _codeIndex);
+        new Data{stateInit: stateData, value: 1.1 ton}(msg.sender, _codeIndex, metadata);
 
         _totalMinted++;
     }

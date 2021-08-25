@@ -17,6 +17,7 @@
   "dependencies": {
     "@types/expect": "^24.3.0",
     "@types/mocha": "^8.2.2",
+    "mocha": "^8.4.0",
     "ts-mocha": "^8.0.0"
   }
 }
