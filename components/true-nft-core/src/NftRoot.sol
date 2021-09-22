@@ -2,7 +2,6 @@ pragma ton-solidity >=0.43.0;
 
 pragma AbiHeader expire;
 pragma AbiHeader time;
-pragma AbiHeader pubkey;
 
 import './resolvers/IndexResolver.sol';
 import './resolvers/DataResolver.sol';
@@ -15,6 +14,7 @@ import './interfaces/IIndexBasis.sol';
 contract NftRoot is DataResolver, IndexResolver {
 
     uint256 public _totalMinted;
+    uint256 static randomKey;
     address _addrBasis;
 
     constructor(TvmCell codeIndex, TvmCell codeData) public {
