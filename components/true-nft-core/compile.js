@@ -1,3 +1,3 @@
 const { compile } = require("@ton-contracts/compiler");
 
-compile(["Index", "Data", "NftRoot", "IndexBasis", "SetcodeMultisigWallet"]);
+compile(["Index", "Data", "NftRoot", "IndexBasis"]);

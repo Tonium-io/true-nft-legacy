@@ -2,6 +2,7 @@ pragma ton-solidity >=0.43.0;
 
 pragma AbiHeader expire;
 pragma AbiHeader time;
+pragma AbiHeader pubkey;
 
 import './resolvers/IndexResolver.sol';
 import './resolvers/DataResolver.sol';
